@@ -1,0 +1,175 @@
+Name,Type,Duration,Cooldown,Description,Prerequisites
+Aim,Free,0,,Make a basic ranged attack with a weapon.,""
+Careful Aim,Basic,0,3,Increase the accuracy of ranged attacks by 3,Finesse
+Steady Aim,Upgrade,,,"If a character takes no movement in a turn, the accuracy of ranged attacks is increased by 2, this bonus stacks with other bonuses from skills",Careful Aim
+Sniper,Upgrade,,,Improves the accuracy bonus granted by Steady Aim to 4,Steady Aim
+Crippling Shot,Advanced,3,5,"Make a basic attack with 1 called effect from the following list: Slow (-1), Paralyze (-3), Disarm (-5). Each is associated with a penalty to the attack pool. You must declare the effect before rolling to hit. If the attack is a hit, you apply the effect instead of dealing damage. The effect applied lasts for the duration of this skill.",Sniper
+Deadeye,Instant,3,5,Add 5 stacks of Deadeye. Stacks last for 3 Turns (until skill duration ends). A character may use a stack of Deadeye to recieve a +1 bonus on an aim check.,"Finesse, Level 8"
+Gun-Juggler,"Upgrade",3,5,Stacks of Deadeye may be used to make an additional attack with a Pistol or Revolver.,"Finesse, Level 8"
+Showdown,Defining,3,5,"Each time an attack deals damage, gain a stack of Deadeye. All stacks of Deadeye are removed when this skill enters cooldown. ","Deadeye, Gun-Juggler"
+Overwatch,Basic,1,3,"Choose either an action or an area. The first time an enemy or neutral character takes the action or enters the area before the start of your next turn, you may make a basic attack against them if you are able. An area is considered a cone which extends from the character up to the current weapon range (+- 45 degrees from a selected point). ",
+Spray and Pray,Basic,0,3,"As part of a move action, you may make as many attacks as your weapon allows. You may not use your action to make any additional attack actions (any action which rolls an accuracy pool). Take a -2 penalty to your accuracy pool when using this skill.",Level 3
+Itchy Trigger Finger,Advanced,,,"When weilding a rapid weapon, increase it's rapid number by 1.",Spray and Pray
+Steady Hands,Passive,,,Recoil from weapons is reduced by 1.,Itchy Trigger Finger
+Bulletstorm,Defining,3,8,"For each ranged attack you make, select a second target within 2 spaces. Make the attack against that target as well. The attacks are identical, any modifications appled to the first also apply to the second.",
+Called-shot,Basic,1,3,"When you use this action, the first attack made on your next turn recieves +5 accuracy.",Finesse
+Penetrating Shot,Upgrade,,,"When you use Called shot, reduce targets armor value by 5 for the first attack. This cannot reduce armor below zero.",Called-shot
+Strike,Free,0,,Make a basic melee attack with a weapon.,
+Ready Strike,Basic,1,3,When a character spends movement adjacent to you during the duration of this skill you may choose to make a basic attack. You may only make one such attack until the start of your next turn.,
+Aid,Free,0,,You may use your action to restore 1 health to an adjacent ally.,
+Cauterize,Basic,0,3,"Use your weapon to heal an ally. The range of this skill is equal to the range of your current weapon. The power of this skill is equal to half the damage of your currently equiped weapon, rounded down, with a minimum healing power of 1. If your weapon is rapid, you may multiply the healing effect by the rapid number minus any recoil incurred. ",Aid
+Defribulating Round,Basic,0,5,You may revive an ally at range equal to your currently equiped weapon. The ally regains health from zero equal to the damage of your currenty equiped weapon.,Cauterize
+Fortify,Basic,3,5,Gain 2 armor. Effect ends if movement is spent or skill duration ends.,
+Hasten,Basic,0,3,Using your action you may double the movement of any target for one turn.,
+Summon Minion (Small),Basic,,5,"Summon a minion to pull levers, pickup items, and deliver effects. The minion performs one action or moves on your turn. The number of minions is capped at 1. You cannot use Summon minion if you currently have minions equal to your cap. When you take this skill choose one minion from the small minion list and note it next to this skill. That is the minion you may summon. You may take this skill multiple times to summon a variety of minions. When you summon a minion, you gain stacks of obedience equal to your obediance cap (3). When you have zero obediance remaining your minion either is exhausted or ignoring your commands. Minions may move for free, but can only take actions when you spend obediance. Stacks of obediance deplete at a rate of 1 on any turn when you do not spend obediance. You may dismiss a minion at the beginning of your turn to free up a minion slot.",
+Summon Ally,Upgrade,,,"Your obediance cap becomes 6, and you may select minions from the medium minion list.","Summon Minion, Level 5"
+"Summon Patron",Upgrade,,,"Your obediance cap becomes 9, and you may select minions from the large minion list.","Summon Ally, Level 8"
+Minion Strike,Upgrade,,,A minion may make an attack as an action with accuracy 5 and damage 2 when you spend 1 obediance.,Summon Minion
+Minion Bounce,Upgrade,,,"When a minion makes a melee attack, it may then move up to half it's speed when you spend 1 obediance.",Minion Strike
+Minion Chain,Upgrade,,,"Whenever a minion attacks and hits with a melee attack, you may spend 1 obediance, if you do it may move up to it's speed and attack again.","Minion Bounce, Level 5"
+Minion Element,Upgrade,,,You may spend 1 obediance to increase the next minion's attack's element number by 3 (if they would have an elemental effect),Minion Strike
+"Igneous Minion",Upgrade,,,Minion attacks may be considered Fire-Typed (declare before rolling to attack),Minion Element
+"Charged Minion",Upgrade,,,Minion attacks may be considered Shock-Typed (declare before rolling to attack),Minion Element
+Alkaline Minion,Upgrade,,,Minion attacks may be considered Caustic-Typed (declare before rolling to attack),Minion Element
+Frosted Minion,Upgrade,,,Minion attacks may be considered Cryo-Typed attacks (declare before rolling to attack),Minion Element
+Slagging Minion,Upgrade,,,Minion attacks may be considered Slag-Typed attacks (declare before rolling to attack),Minion Element
+Minion Prime,Upgrade,,,"One minion you summon may be desegnated Prime. Prime Minions receive +3 accuracy pool, +2 damage, +3 elemental number.","Minion Strike, Level 8"
+Careful Minion,Upgrade,,,Minion accuracy increases by 5,"Minion Strike, Level 5"
+Deadly Minion,Upgrade,,,Minion attack damage increases by 3,"Minion Strike, Level 5"
+Beastmaster,"Defining",,,You may spend 3 obediance to tame 1 beast-typed creature. Tamed creatures count towards your minion cap and revert to their initial state when you run out of obediance.,"Summon Minion, Level 5"
+Menagerie,Upgrade,,,Your minion cap improves to 3.,"Summon Minion, Level 5"
+Synergistic Link,Upgrade,1,3,You may use an action to cause your minion to take an immediate action without spending obediance.,"Summon Minion, Level 3"
+Bulk,Passive,,,Gain 6 Hitpoints,
+Toughness,Passive,,,Gain 6 Hitpoints,Bulk
+Musclebound,Basic,3,5,"All damage taken is halved. Heal 3 hitpoints at the end of your turn. This effect ends if movement is taken while active.",Toughness
+Bastion,Upgrade,,,Bulk and Toughness Grant 12 hitpoints instead of 6.,Bulk
+Diehard,Passive,,,"When you are downed, you may either move 1 space, or make a basic attack.",
+Iron Church,Advanced,,,"Bulk and Toughness Grant 24 hitpoints instead of 6. At the start of each combat you gain 5 stacks of Iron. Each stack of Iron grants +1 dmg to melee attacks. Lose a stack of iron if you take damage during a turn (immediately, the first time you take damage). ",Bastion
+Flex,"Upgrade",0,3,"You may spend stacks of Iron to Flex. All creatures in a burst of radius 1 become blinded and slowed. For each stack of Iron you spend, increase the radius by 1. ",Iron Church
+One handed Wonder,Passive,,,"Smgs, and Assault Rifles may be used in one hand",Bulk
+Gunzerking,Defining,3,5,"You may immediately equip a second Pistol, Revolve, Smg, or Assault Rifle. Both equipped weapons may be used in an attack at half accuracy.",One handed Wonder
+Rage,Basic,,5,"Gain 3 stacks of rage. Lose one stack of rage at the end of your turn. While you have at least one stack of rage your accuracy pools are reduced by 2, but your melee attacks do +4 damage. And you ignore the first 2 points of damage applied to your health each turn. While raging you cannot use proficiencies, and every enemy is considered aware of you.",Toughness
+"Unignorable",Upgrade,,,"When raging, enemies must target you. Ignore the first 8 points of damage received per turn, instead of 2.",Rage
+Unstoppable,Upgrade,,,"You may spend a stack of rage to deal +4 damage to any melee attack. ",Rage
+Unbreakable,Upgrade,,,"You may spend a stack of rage to ignore all damage taken this turn.",Rage
+"Hell hath no Fury",Upgrade,,,"When using rage, gain an additional 5 stacks of rage.","Rage, Level 8"
+Juggernaut,Defining,3,8,"Ignore all incoming damage while active. Instead every 2 points of damage gives you a stack of fatigue. Each stack of fatigue reduces your movment by 1. Stacks of fatigue are removed at the end of your turn. While active, you recieve +4 to accuracy and +6 to damage when performing a melee attack.","Unbreakable, Rage, Level 8"
+Tackle,Basic,0,3,"Use this skill only on a turn when you move in a straight line. Make a melee attack. For each space moved this turn, receive +1 to the damage of that attack.",
+Bullrush,Upgrade,,,"When tackle is used, you may push move the target up to half the distance you moved this turn in the direction of your movement.",Tackle
+Hammerthrow,Upgrade,,,"When tackle is used, the target takes 2 points of damage for each space they are moved.",Bullrush
+Finesse,Passive,,,The accuracy of ranged attacks is increased by 1,
+Spotter,Passive,,,The accuracy pools of adjacent allies is increased by 2,
+Dodge,Defensive,,1,Recieve +2 to dodge bonus against the current attack,Finesse
+Evasive,Upgrade,,,The bonus granted by Dodge increases to 4,Dodge
+Dexterity,Passive,,,"The accuracy of ranged attacks is increased by 2. Additional recieve an automatic +1 dodge bonus against all attacks",Evasive
+Shield Charge,Defensive,3,5,Gain armor 1. For every 2 points of damage recieved gain 1 movement for your next turn.,
+Uncanny Reflex,Upgrade,,,"The first time you use dodge on a turn, cooldown is not incurred",Dodge
+"Rush","Basic",0,3,You must move at least 4 spaces in a straight line before making a basic melee attack. Your attack is made with +1 damage.,
+Sideswipe,Instant,,1,"If you successfully hit a target, you may immediately move 2 spaces.",Rush
+"Murder Chain",Passive,"",,"Whenever you kill an opponent, you may move to, and make a basic melee attack against an opponent within 2 spaces.",Sideswipe
+Too Fast to Live,Defining,3,5,"Whenever you successfully hit an opponent with an attack, you may move to and make a basic attack against an opponent within 2 squares of your target. You may not make more than 5 such attacks in a single turn.",Murder Chain
+Splitting Strike,Basic,0,3,"Instead of dealing damage, when splitting strike is used you may choose to instead reduce the targets armor value by 1 for the rest of the combat.",
+Piercing Strikes,Passive,,,"When making a melee attack, your enemies armor value is reduced by 1. Cannot reduce armor value below 0.",
+Can Opener,Basic,0,3,"Make a melee attack against an armored target. This attack deal no damage to health. Instead reduce the target's armor value by the damage that would be dealt. This reduction does NOT stack with other armor-reducing effect (choose the larger effect, ignore the smaller).",Piercing Strikes
+Pierce The Heavens,"Advanced",0,5,"Make a melee attack. Ignore shields and armor.","Can Opener, Level 5"
+Resistance,Defensive,,1,You recieve +2 restance against elemental effects.,
+Elemental Endurance,Defensive,,1,You may roll your endurance pool and add it to your elemental resistance,Resistance
+Hardy,Passive,,,Recieve +1 resistance,Level 3
+Stoic,Passive,,,Recieve +3 resistance,Level 5
+Indominable,Passive,,,Recieve +6 resistance,Level 8
+Situational Awareness,Passive,,,You cannot be caught unaware,Level 5
+Pickpocket,Passive,,,"When you hit a target with a melee attack, you may choose to instead attempt to pickpocket them. If you do, the VL will roll to determine what loot you recieve (if any). When you pickpocket, you deal no damage.",Finesse
+Plant,Upgrade,,,"When you use pickpocket, you may instead place an item into someone's inventory.",Pickpocket
+Sneak Attack,Passive,,,"When you score a hit against a target who is unaware of you, damage for the attack is doubled. That target is now considered aware of you, even on a miss.",Finesse
+Decoy,Basic,3,5,Create a holographic clone of you in the space in front of you. All targets are considered unaware of you for the duration of the skill. The effect ends if you make an attack.,Finesse
+Crippling Strike,Advanced,0,5,"If you hit with a Sneak Attack, your target becomes stunned until the end of it's next turn.",Sneak Attack
+Weeping Blade,Advanced,0,3,If you hit with a melee attack you may convert damage into stacks of bleed. A creature may make an endurance check to resist bleed (any creature may default 2 against this skill) at the start of their turn. Any unresisted bleed stacks deal 1 damage at the end of that creatures turn. All resisted stacks are removed immediately (at least 1 stack is always removed after damage is delt).,Crippling Strike
+Power Strike,Basic,0,3,"Subtract 2 accuracy from a melee attack to deal 2 additional dmg. Must be declared before attacking.",
+Devestating Strike,Basic,0,3,"Subtract 4 accuracy from a melee attack to deal 4 additional dmg. Must be declared before attacking. On a successful hit, the target is Stunned.",Power Strike
+Apocalypse Strike,Defining,0,3,"Subtract 2 accuracy from a melee attack. This attack deals 4 additional dmg to the target on a hit. On a hit, all creatures/objects within 2 spaces are targeted by the same attack. The target of the attack becomes paralyzed. All creatures within 2 spaces become stunned, even on a miss.",Devestating Strike
+Technomancy,Passive,,,Recieve a bonus when using a shield. Add 1 to the capacity of the shield.,
+Support Drone,Basic,0,3,"You may activate a support drone in any space adjacent to you. A support drone follows one character and provides one of two bonuses: +2 shield capacity or +2 accuracy. The support drone can move 2 spaces per turn, and follows its assigned target. The mode may only be changed on your turn, and only once per turn. Support drones have 1 armor, and 6 HP. Support drones to not take actions.",Technomancy
+Medical Suite,Upgrade,,3,"If the support drone is adjacent to it's target it can perform a heal for 2 HP. If it provides a heal on your turn. If it provides a heal, it does not provide any other bonus until the start of your next turn.",Support Drone
+"Defribulation Contacts",Upgrade,,,You may use your action to revive the character targeted by the support drone. That character revives at 2 HP. The support drone does not provide any bonus on a turn this is used.,Medical Suite
+Assault Drone,Basic,0,3,"You may activate an assault drone in any space adjacent to you. An assault drone attacks either your target, or (if you don't have a target) the closest enemy. It has an accuracy of 3 and a damage of 2. With range 5. The assault drone may move 4 spaces per turn. Assault Drones have 2 armor, and 10 HP.",Technomancy
+Heavy Loadout,Upgrade,,,The assault drone's damage increases to 3,Assault Drone
+Twin Cannons,Upgrade,,,The assault drone gains Rapid (2) Recoil (1),Assault Drone
+Incindiary Loadout,Upgrade,,3,The assault drone may blanket an area in flame. A cone shaped area adjacent to the drone is effected. Deal Fire 3 to all creatures within a cone of length 1 projecting from the drone.,Heavy Loadout
+Caustic Loadout,Upgrade,,3,The assault drone may blanket an area in caustic spray. A cone shaped area adjacent to the drone is effected. Deal Caustic 3 to all creatures within a cone of length 1 projecting from the drone.,Heavy Loadout
+"High Voltage Loadout",Upgrade,,3,The assault drone may blanket an area with a high voltage field. A cone shaped area adjacent to the dron eis effected. Deal Shock 3 to all creatures within a cone of length 1 projecting from the drone.,Heavy Loadout
+"Geometry Coprocessor",Upgrade,,,Cones of effect projecting from the assault drone have a length of 2.,"Heavy Loadout, Level 5"
+"Projector Array",Upgrade,,,Cone of effect projecting from teh assault drone have a length of 4.,Geometry Coprocessor
+Remote Delivery System,Advanced,,3,"When an effect would cause the assault drone to project a cone of elemental damage, the drone may use the RDS system to launch a grenade. The elemental effect is unchaged, but the effect instead targets a radius of 3 within 10 spaces.","Geometry Coprocessor, Level 8"
+Autonomy,Passive,,,"The targets of an assault drone may be specified. Additionally, the drone may use the Overwatch ability if it has no valid target.",Assault Drone
+Capacitors,Passive,,,Drone duration is increased to 5,Technomancy
+Microfusion,Passive,,,Drone duration is increased to 8,Technomancy
+Multitranseiver,Passive,,,You may have up to 2 drones active at once.,"Technomancy, Level 5"
+Remote Digistruct,Passive,,,You may activate a drone up to 5 spaces away from you.,"Technomancy, Level 5"
+Digistruct Wiz,Passive,,,Activating a drone does not require an action.,Remote Digistruction
+Tactical Drone,Advanced,0,3,"The tactial drone provides 3 stacks of Tactics. The drone can perform any of the following actions. Flashbang (3 Tactics) - Blinds all in radius 2, Range 8. Net cannon (1 Tactic) - Entangle 1 target, Stun Grenage (2 Tactics) - Slows all in radius 2, Range 8. The tactical drone may move 1 per turn. Tactical Drone has 1 armor and 10 HP",Digistruct AI
+Overload,Defining,0,,"Every active drone gains 3 stacks of power. Each stack of power can be used for the following: +3 to damage or shield bonus, +6 Heal magnitude, +3 Movement, +3 Accuracy, +1 radius. 1 Stack of power can also be used to detonate the drone. Doing this deals 5 damage in a radius 1 area centered on the drone. If there are remaining stacks of power left on the drone at detontation, you must may spend them on the detonation.",Digistruct Operation
+Immediate Reaction,Instant,,3,When a foe leaves a space adjacent to you you may make an immediate attack with a melee weapon. ,
+Parry,Upgrade,,,"You may use immediate reaction as a defense if you are targeted with a melee attack. In this case, subtract every hit you score from your opponents hit total. This attack cannot reduce your foes hit total below zero and deals no damage.",Immediate Reaction
+Sirenity,"Free",0,8,"Gain stacks of Sirenity equal to your phase pool. Sirens start with a phase pool of 3. Cooldown begins when all Sirenity is spent. If Sirenity is NOT spent during a turn, lose one Sirenity.",
+Phase Pooling,Upgrade,,,"When Sirenity is active, gain 1 stack of Sirenity for each turn you spend zero movement.","Sirenity"
+Phase Strike,Basic,0,3,"You may make a basic melee attack. You may spent a stack of Sirenity to gain +2 to either accuracy or +1 damage. You must declare the amount you are spending on accuracy, but you may choose to spend Sirenity on damage as it is delt.","Sirenity"
+Phase Lock,Basic,3,5,"Select one target within range of Phase Strike. For every stack of Sirenity you spend on Phase Lock, deplete the targets shield by 2. If the target's shield is reduced to zero in this manner, the target is paralyzed for the duration of this skill. The targets shield does not regen while it is phase locked. If the target is immune to paralysis and would be paralyzed, instead deal 1 damage for every stack of Sirenity spent on this skill.",Phase Strike
+Phase Jaunt,Basic,3,5,"Your character may spend only move actions while using Phase Jaunt. You may not be targeted and are uneffected by area effects while Phase Jaunting. When this skill ends you make immediately make a Phase Strike. You may choose to end this skill early. ","Sirenity"
+Phase Battery,Upgrade,,,Your phase pool is increased by 3,
+Phase Shield,Basic,1,3,You may spend 2 stacks of Sirenity to add 1 to your deflect. This effect lasts until the start of your next turn.,Sirenity
+Phase Shift,Basic,0,3,You may spend a point of Sirenity to unlock a door or activate an unlocked terminal. Phase shift does not effect locked terminals.,Sirenity
+Hold Phase,"Advanced",,"",You may spend 3 stacks of Sirenity to add 1 to the duration of one of your skills.,"Sirenity, Level 8"
+Eridium Burn,Basic,0,3,"You may consume 1 Eridium crystal to add an arbitrary amount to any dice pool you would roll. You must declare this before you roll, but you may roll the pool before adding dice. For each die you add to the pool, receive 1 point of damage immediately.",Sirenity
+Incindiary Phase,"Advanced",3,5,"You may spend a number of stacks of Sirenity on Incindiary Phase. If you do, your attacks gain Fire X, where X is half the number of stacks rounded down.","Sirenity, Level 5"
+Caustic Phase,"Advanced",3,5,"You may spend a number of stacks of Sirenity on Caustic Phase. If you do, your attacks gain Caustic X, where X is half the number of stacks rounded down.","Sirenity, Level 5"
+Shocking Phase,"Advanced",3,5,"You may spend a number of stacks of Sirenity on Shocking Phase. If you do, your attacks gain Shock X, where X is half the number of stacks rounded down.","Sirenity, Level 5"
+Cryogenic Phase,"Advanced",3,5,"You may spend a number of stacks of Sirenity on Cryogenic Phase. If you do, your attacks gain Cryo X, where X is half the number of stacks rounded down.","Sirenity, Level 8"
+Phase Burst,Upgrade,,,"You may spend a stack of Sirenity to increase the radius of Phase strike by 1. (Radius 0 is a single-target attack, radius 1 effects all adjacent)","Phase Strike, Level 8"
+Phase Bond,Basic,0,,Your minion performs the Phase Strike ability. Spend Sirenity as if you were using it.,"Summon Minion, Sirenity, Phase Strike"
+Telephase,Upgrade,,,Phase Strike gains a range of 5. ,"Phase Strike, Level 5"
+Etherial Chains,"Advanced",0,1,"Using one stack of Sirenity, create Etherial chains to immobalize all targets in a radius 1. You may spend 2 stacks of Sirenity to increase the radius by 1. The movement of all foes in the area becomes 0. You may spend an additional 2 stacks of Sirenity to instead paralyze all targets. At the start of your turn, you must spend the same amount of Sirenity stacks to maintain the effect or it ends.",Telephase
+Phase Syphon,,1,3,"For each target you deal damage to in a turn, gain 1 stack of Sirenity. Each target must be non-cybernetic biological creature.","Phase Strike, Level 5"
+Sirene Grace,Basic,0,,You may spend 1 stack of Sirenity to heal 2 HP to a single adjacent target.,Sirenity
+Angelic Grace,Upgrade,,,"When you use Sirene Grace, instead heal 4 for each stack of Sirenity spent.",Sirene Grace
+"Graceful Aura",Upgrade,,,"When using Sirene Grace, you may divide the healing among creatures in radius one instead of adjacent.",Angelic Grace
+Overdriven Grace,Upgrade,,,"When you use Sirene Grace, instead heal 6 for each stack of Sirenity spent.","Angelic Grace, Level 8"
+Directed Grace,Upgrade,,,Sirene Grace may effect targets at up to range 5.,"Angelic Grace, Level 5"
+Phase Armor,Basic,3,5,"Spend one stack of Sirenity to grant an adjacent target or yourself gains +2 armor for the duration of this skill.",Sirenity
+Phase Reflexes,Basic,3,5,"Spend on stack of Sirenity to grant an adjacent target or yourself gains +2 circumstance bonus to dodge rolls.",Sirenity
+Final Phase,Defining,5,10,"During the duration of this skill, any sirenity stacks gained are doubled. Additionally you may spend one stack of sirenity to reduce the damage of any incoming attack by 1. When you use Final Phase, you may also activate Sirenity without using an action. Your Sirenity cap is considered doubled while using this skill.","Sirenity, Level 12"
+Assault Turret,Basic,3,5,Select a square adjacent to you. Deploy an assault turret there. The turret gains a turn at the end of the order. On it's turn it makes an attack against the closest target it can hit. The Assault turret attacks with acc 4 and dmg 2. You may only have 1 turrent deployed.,
+"Turret Barrier",Upgrade,,,Any character adjacent to your turret recieves a +1 circumstance bonus to deflect.,Assault Turret
+"Turret Armor",Upgrade,,,Deployed turrets gain 1 armor.,Assault Turret
+Extra Barrel,Upgrade,,,Your Turrets make two attacks against their target.,Assault Turrent
+"Support Systems",Upgrade,,,"Characters adjacent to your turret heal 1 point when the turret takes it's action.",Assault Turret
+Improved Optics,Upgrade,,,Your turret makes attacks with accuracy 6 instead of 4.,Assault Turret
+"Extended Powercell",Upgrade,,,Assault Turret durration becomes 5.,"Assault Turret, Level 5"
+Explosive Shells,Upgrade,,,Your turret's attacks gain Explosive 2.,Assault Turret
+Turret Clamp,Upgrade,,,"Turrets may be deployed on walls, or ceilings.",Assault Turret
+Longbow Systems,Upgrade,,,Turrents may be deployed at range 15.,"Assault Turret, Level 8"
+"Turrent Shield",Upgrade,,,"Turrets gain a shield of deflect 1, capacity 4, recharge 1.","Assault Turret, Level 5"
+"Grenade System",Upgrade,,,Turrets may launch 1 grenade per deployment. They take this action instead of their standard atttack.,"Assault Turret, Level 5"
+Rocket System,Upgrade,,,Turrets may launch up to 3 rockets per deployment. They take this action instead of their standard attack.,Grenade System
+Devestating Deploy,Advanced,,,"When your turret is delpoyed, deal 5 explosive to all within 5 spaces, and move them 2 in a straight line away from the turret. Your turrent may not act the turn it is deployed.","Rocket System, Level 8"
+Lightly Armored,Passive,,,You may use armor with a weight of up to 1,""
+Moderately Armored,Upgrade,,,You may use armor with a weight of up to 2,Lightly Armored
+Heavily Armored,Upgrade,,,You may use armor with a weight up to 3. Your movement is decreased 1 space for every 3 armor. Cannot decrease movement below 1.,Moderately Armored
+Incredible Strength,Upgrade,,,Your movement is only decreased 1 space for every 6 armor.,Heavily Armored
+Immovable,"Advanced",,,"When using armor with a weight 3 or greater, all forced movement is reduced by 1 for every 3 weight.",Heavily Armored
+Walking Tank,Upgrade,,,You can use armor of weight 4 or greater.,Heavily Armored
+Digistruct Plating,Reaction,3,5,"As an action or reaction, you can digistruct armor plating. This action adds +2 to your current armor rating instantly. This bonus lasts for the duration of the skill.","Technomancy, Moderately Armored"
+Shield Link,Basic,3,5,"When you are adjacent to an ally, you may use your action to link shields. Linked shields combine capacities, and operate at the higher deflect bonus. Shields operate at the lowest recharge rate.",
+Shieldbending,Basic,3,5,"You may transfer a portion of your shield capacity to an adjacent shielded ally as a reaction. If you or the ally moves non adjacent, this skill enters cooldown",Shield Link
+Shield Merge,Passive,,,"You may use 2 shields. Combine their capacities, choose the higher deflect bonus, and the lower recharge rate.",
+Shield Overclocking,Passive,,,Shields you use gain +1 recharge.,
+Shield Overload,Advanced,,,"You may overload your shields to make an attack against all adjacent creatures/objects. For every 2 shield capacity currently remaining in your shields, the attack recieves 2 accuracy and 1 damage. This attack depletes your shields immediately.",Shield Overclocking
+Shield Hardening,Passive,,,Shields you use gain +1 deflect.,
+Shield Syphon,Advanced,,,"When you hit with a melee attack, you may use Shield Syphon. Remove damage from the targets sheild as normal. For every 2 points depleted, add 1 point to your current shield capacity. This cannot cause your shield capacity to go above it's maximum. If this attack deals no health damage, even if damage points remain after the target's shield is depleted.",Shield Link
+"Shield Node",Defining,3,5,"When you use this skill you gain your shielding cap (3) stacks of Shielding. Each Stack of shielding depletes BEFORE your standard shield capacity (allowing shield capacity greater than your maximum). As an action, you may shift a number of stacks of shielding from any adjacent ally to yourself, or any other adjacent ally. Targets without shield node cannot have more than their shield node cap (3 by default) stacks of Shielding at a time. ","Shield Link, Level 5"
+"Shield TX Array",Upgrade,,,"When using Shield Node you may shift Shield stacks from yourself to any target within 5 spaces.",Shield Node
+Shield RX Array,Upgrade,,,"When using Shield Node you may shift Shield stacks to yourself from any target within 5 spaces.",Shield Node
+Shield Battery,Upgrade,,,Your shielding cap increases by 3.,Shield Node
+"Shield Nexus","Upgrade",,,When using Shield Node you may move stacks directly between targets within 5 spaces. Your shielding cap increases by 3.,"Shield TX Array, Shield RX Array, Level 8"
+"Shield Control Virus",Upgrade,,,"When using Shield Node, you may convert Shield Capacity into stacks of shielding when shifting. This does NOT trigger shield depletion effects if you reduce current capacity to zero, but does trigger recharge delay.","Shield Node, Level 5"
+"Shield Coprocessor",Upgrade,,,"When using Shield Node, you may shift stacks twice per action.",Shield Node
+Shield Watercooling,Upgrade,,,Shield Node's Duration increases to 6.,Shield Node
