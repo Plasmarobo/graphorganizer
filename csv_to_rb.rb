@@ -6,6 +6,7 @@ output << "nodes = []\n"
 CSV.foreach("data.csv", headers: true) do |row|
   p row
   name = ""
+  depth = 0
   row.each do |header, column|
     if header == 'Name'
       name = column.downcase.gsub(/[^a-z]/, '')
@@ -13,8 +14,12 @@ CSV.foreach("data.csv", headers: true) do |row|
       output << name
       output << " = Node.new("
       output << "'#{column}'"   
+    elsif header == 'Type' and column == 'Free'
+      depth = -1
     elsif header == 'Prerequisites'
-      depth = 0
+      if depth != -1
+        depth = 0
+      end
       if column != nil
         CSV.parse(column) do |row|
           row.each do |reference|

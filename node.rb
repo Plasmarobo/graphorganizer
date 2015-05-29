@@ -4,6 +4,8 @@ class Node
   attr_accessor :name
   attr_accessor :depth
   attr_accessor :x
+  attr_accessor :domain
+  attr_accessor :y
 
   def initialize(name, depth)
     @name = name
@@ -11,18 +13,8 @@ class Node
     @children = []
     @parents = []
     @x = 0
-  end
-  
-  def depth
-    @depth
-  end
-
-  def x
-    @x
-  end
-
-  def name
-    @name
+    @y = 0
+    @domain = 0
   end
 
   def add_child(node)

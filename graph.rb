@@ -91,15 +91,72 @@ class Graph
     end
 
     image = PNG.new canvas
-    image.save 'unsorted.png'
+    image.save 'raw.png'
 
   end
 
-  def layout
+  def domain_sort
     # Attempt to move nodes as close to their parent as possible. 
+    @icon = 32 
+    @padding = 16
+    edge_pad = 256
+    icon_color = PNG::Color::Red 
+    path = 8
+    path_color = PNG::Color::Blue
+    width = 0
+    height = 0
+    max_x = 0
+    max_depth = 0
+
+    # Create a node pool
+    master_node_pool = []
+
     traverse(@root) do |node|
-      
+      node.domain = node.children.length
+      master_node_pool << node
     end
+
+    node_pool = master_node_pool.uniq
+    node_map = {}
+    while !node_pool.empty?
+      nodeA = node_pool.shift
+      node_map[nodeA] = {}
+      node_pool.each do |nodeB|
+        if !node_map.has_key? nodeB
+          node_map[nodeB] = {}
+        end
+        common_nodes = (nodeA.children.concat nodeB.children).group_by{ |e| e }.select { |k, v| v.size > 1 }.map(&:first)
+        node_map[nodeA][nodeB] = common_nodes.length
+        node_map[nodeB][nodeA] = common_nodes.length
+      end
+    end
+    node_pool = master_node_pool.uniq
+    #Layout nodes, maximizing common node values
+    node_list = []
+    while !node_pool.empty?
+      node = node_pool.shift
+      if node_list.length < 3
+        node_list << node
+      else
+        best_pointer = -1
+        best_score = 0
+        for pointer in (0..node_list.length-1)
+          left = node_list[pointer]
+          current = node_list[pointer+1]
+          score = node_map[node][left] + node_map[node][current]
+          if  score > best_score
+            best_score = score
+            best_pointer = pointer
+          end
+        end
+        node_list.insert(best_pointer, node)
+      end
+    end
+
+    # Inflate tree
+
+    image = PNG.new canvas
+    image.save 'layout.png'
 
   end
 
@@ -113,4 +170,16 @@ class Graph
         yield node
       end
     end
+
+    def pl(msg,level)
+      str = ""
+      level.times do 
+        str += "  "
+      end
+      #p str + msg
+    end
+
+    
+
+
 end
