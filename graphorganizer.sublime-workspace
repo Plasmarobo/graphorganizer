@@ -11,7 +11,7 @@
 			"file": "graph.rb",
 			"settings":
 			{
-				"buffer_size": 2452,
+				"buffer_size": 4121,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "csv_to_rb.rb",
 			"settings":
 			{
-				"buffer_size": 980,
+				"buffer_size": 1090,
 				"line_ending": "Unix",
 				"name": "require 'csv'"
 			}
@@ -28,7 +28,7 @@
 			"file": "result.rb",
 			"settings":
 			{
-				"buffer_size": 16744,
+				"buffer_size": 16748,
 				"line_ending": "Unix"
 			}
 		},
@@ -36,7 +36,7 @@
 			"file": "Gemfile",
 			"settings":
 			{
-				"buffer_size": 40,
+				"buffer_size": 53,
 				"line_ending": "Unix",
 				"name": "source 'https://rubygems.org'"
 			}
@@ -45,7 +45,7 @@
 			"file": "test.rb",
 			"settings":
 			{
-				"buffer_size": 16818,
+				"buffer_size": 16839,
 				"line_ending": "Unix"
 			}
 		},
@@ -53,7 +53,7 @@
 			"file": "node.rb",
 			"settings":
 			{
-				"buffer_size": 599,
+				"buffer_size": 587,
 				"line_ending": "Unix"
 			}
 		}
@@ -93,7 +93,7 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 21.0
 	},
 	"find_in_files":
 	{
@@ -143,15 +143,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2452,
+						"buffer_size": 4121,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1841,
-								1841
+								2412,
+								2412
 							]
 						],
 						"settings":
@@ -161,7 +161,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 858.0,
+						"translation.y": 312.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -179,15 +179,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 980,
+						"buffer_size": 1090,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								898,
-								898
+								0,
+								0
 							]
 						],
 						"settings":
@@ -210,15 +210,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16744,
+						"buffer_size": 16748,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16744,
-								16744
+								0,
+								0
 							]
 						],
 						"settings":
@@ -238,15 +238,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 40,
+						"buffer_size": 53,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								40,
-								40
+								0,
+								0
 							]
 						],
 						"settings":
@@ -267,15 +267,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16818,
+						"buffer_size": 16839,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16794,
-								16794
+								0,
+								0
 							]
 						],
 						"settings":
@@ -295,15 +295,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 599,
+						"buffer_size": 587,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								393,
-								393
+								0,
+								0
 							]
 						],
 						"settings":
@@ -324,7 +324,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 21.0
 	},
 	"input":
 	{
@@ -360,7 +360,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 42.0
+		"height": 38.0
 	},
 	"save_all_on_build": true,
 	"select_file":

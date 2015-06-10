@@ -74,16 +74,18 @@ class Graph
     canvas = PNG::Canvas.new @width,@height, PNG::Color::Black
     
     traverse(@root) do |node|
+      puts "Width: #{@width}, Height: #{@height}"
       #Draw line, then icons
       x = (node.x     * (@icon + @padding)) + @edge_pad
       y = (node.y)
+      puts "X: #{x}, Y: #{y}"
       cX = x + @icon/2
       cY = y + @icon/2
 
       node.parents.each do |pNode|
         if pNode != @root
           pX = (pNode.x     * (@icon + @padding)) + @edge_pad
-          pY = (pNode.y * (@icon + @padding)) + @edge_pad
+          pY = (pNode.y)
           pCX = pX + @icon/2
           pCY = pY + @icon/2
           canvas.line(pCX, pCY, cX, cY, @path_color)
