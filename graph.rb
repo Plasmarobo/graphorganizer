@@ -134,7 +134,7 @@ class Graph
       depth_node_pool << []
       traverse(@root) do |node|
         if node.depth == level
-          depth_node_pool[level-1] << node
+          depth_node_pool[level] << node
         end
       end
     end
@@ -143,14 +143,15 @@ class Graph
     node_map = {}
     while !node_pool.empty?
       nodeA = node_pool.shift
-      node_map[nodeA] = {}
+      node_map[nodeA.name] = {}
       node_pool.each do |nodeB|
         if !node_map.has_key? nodeB
-          node_map[nodeB] = {}
+          node_map[nodeB.name] = {}
         end
         common_nodes = (nodeA.children.concat nodeB.children).group_by{ |e| e }.select { |k, v| v.size > 1 }.map(&:first)
-        node_map[nodeA][nodeB] = common_nodes.length
-        node_map[nodeB][nodeA] = common_nodes.length
+        puts "Node Map #{nodeA.name} <-> #{nodeB.name} = #{common_nodes.length}"
+        node_map[nodeA.name][nodeB.name] = common_nodes.length
+        node_map[nodeB.name][nodeA.name] = common_nodes.length
       end
     end
     #node_pool = master_node_pool.uniq
@@ -180,32 +181,49 @@ class Graph
     (1 .. max_depth).each do |level|
       levels << []
       node_stream = depth_node_pool[level].uniq
+      puts "Stream size #{node_stream.length}"
       if !node_stream.empty?
-      end
-      while !node_stream.empty?
-        node = node_stream.shift
-        if levels[level].length < 2
-          levels[level] << node
-        else
-          best_position = -1
-          best_score = 0
-          for position in (0 .. levels[level].length-1) do
-            left_score = node_map[node][levels[level][position]]
-            if position < levels[level].length-1
-              right_score = node_map[node][levels[level][position+1]]
-            else
+        while !node_stream.empty?
+          node = node_stream.shift
+          puts "Processing #{node.name}"
+          if levels[level].length < 3
+            levels[level] << node
+          else
+            best_position = -1
+            best_score = 0
+            for position in (-1 .. levels[level].length-1) do
+              puts "Position #{position} of #{levels[level].length-1}"
+              left_score = 0
               right_score = 0
+              if position >= 0 and position < levels[level].length
+                left = levels[level][position]
+                puts "Selected Left as #{left.name} (#{position})"
+                left_score = node_map[node.name][left.name]
+                if left_score.nil?
+                  left_score = 0
+                end
+              end
+              
+              if position+1 < levels[level].length and position+1 >= 0
+                right = levels[level][position+1]
+                puts "Selected Right as #{right.name} (#{position+1})"
+                right_score = node_map[node.name][right.name]
+                if right_score.nil?
+                  right_score = 0
+                end
+              end
+              puts "Scores: left #{left_score}, right #{right_score}"
+              if (left_score + right_score) > best_score
+                best_score = left_score + right_score
+                best_position = position
+              end
             end
-            if (left_score + right_score) > best_score
-              best_score = left_score + right_score
-              best_position = position
-            end
+            levels[level].insert(best_position, node)
           end
-          levels[level].insert(best_position, node)
         end
-      end
-      if levels[level].length > widest_level
-        widest_level = levels[level].length
+        if levels[level].length > widest_level
+          widest_level = levels[level].length
+        end
       end
     end
   

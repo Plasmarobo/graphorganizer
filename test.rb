@@ -324,5 +324,5 @@ node_shieldnode.add_child(node_shieldwatercooling)
 
 graph = Graph.new
 graph.load_data(nodes)
-graph.render
+#graph.render
 graph.domain_sort
