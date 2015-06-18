@@ -74,30 +74,12 @@ class Graph
     canvas = PNG::Canvas.new @width,@height, PNG::Color::Black
     
     traverse(@root) do |node|
-      puts "Width: #{@width}, Height: #{@height}"
       #Draw line, then icons
-      x = (node.x     * (@icon + @padding)) + @edge_pad
-      y = (node.y)
-      puts "X: #{x}, Y: #{y}"
-      cX = x + @icon/2
-      cY = y + @icon/2
-
-      node.parents.each do |pNode|
-        if pNode != @root
-          pX = (pNode.x     * (@icon + @padding)) + @edge_pad
-          pY = (pNode.y)
-          pCX = pX + @icon/2
-          pCY = pY + @icon/2
-          canvas.line(pCX, pCY, cX, cY, @path_color)
-        end
-      end      
+      node.x *= (@padding + @icon)
+      node.y *= (@padding + @icon)
+      node.draw_lines(canvas, @icon, @edge_pad, @path_color)
       
-      (y..(y+@icon-1)).each do |yPoint|
-        (x..(x+@icon-1)).each do |xPoint|
-          canvas.point(xPoint, yPoint, @icon_color)
-        end
-      end
-      canvas.annotate(node.name, x, y)
+      node.draw(canvas, @icon, @edge_pad, @icon_color)
     end
 
     image = PNG.new canvas
@@ -149,7 +131,6 @@ class Graph
           node_map[nodeB.name] = {}
         end
         common_nodes = (nodeA.children.concat nodeB.children).group_by{ |e| e }.select { |k, v| v.size > 1 }.map(&:first)
-        puts "Node Map #{nodeA.name} <-> #{nodeB.name} = #{common_nodes.length}"
         node_map[nodeA.name][nodeB.name] = common_nodes.length
         node_map[nodeB.name][nodeA.name] = common_nodes.length
       end
@@ -181,23 +162,19 @@ class Graph
     (1 .. max_depth).each do |level|
       levels << []
       node_stream = depth_node_pool[level].uniq
-      puts "Stream size #{node_stream.length}"
       if !node_stream.empty?
         while !node_stream.empty?
           node = node_stream.shift
-          puts "Processing #{node.name}"
           if levels[level].length < 3
             levels[level] << node
           else
             best_position = -1
             best_score = 0
             for position in (-1 .. levels[level].length-1) do
-              puts "Position #{position} of #{levels[level].length-1}"
               left_score = 0
               right_score = 0
               if position >= 0 and position < levels[level].length
                 left = levels[level][position]
-                puts "Selected Left as #{left.name} (#{position})"
                 left_score = node_map[node.name][left.name]
                 if left_score.nil?
                   left_score = 0
@@ -206,13 +183,11 @@ class Graph
               
               if position+1 < levels[level].length and position+1 >= 0
                 right = levels[level][position+1]
-                puts "Selected Right as #{right.name} (#{position+1})"
                 right_score = node_map[node.name][right.name]
                 if right_score.nil?
                   right_score = 0
                 end
               end
-              puts "Scores: left #{left_score}, right #{right_score}"
               if (left_score + right_score) > best_score
                 best_score = left_score + right_score
                 best_position = position
@@ -229,26 +204,40 @@ class Graph
   
     levels.select! {|level| !level.empty?}
     actual_depth = levels.length
-    level_domain = (widest_level * (icon + padding)) + padding
-    level_height = (actual_depth * (icon + padding)) + padding
-    @width = level_domain + (edge_pad * 2)
-    @height = level_height + (edge_pad * 2)
+    level_domain = (widest_level * (@icon + @padding)) + @padding
+    level_height = (actual_depth * (@icon + @padding)) + @padding
+    @width = level_domain + (@edge_pad * 2)
+    @height = level_height + (@edge_pad * 2)
+    canvas = PNG::Canvas.new @width,@height, PNG::Color::Black
     # Levels should now be ordered
     # Inflate margins and groups
     y_stride = level_height / actual_depth
     y_offset = 0
-    (1 .. max_depth).each do |level|
+    x_offset = 0
+    newroot = Node.new("root", 0)
+    (1 .. levels.length-1).each do |level|
+      puts levels[level]
       domain_slice = level_domain / levels[level].length
       x_offset = domain_slice/2
       levels[level].each do |node|
         node.x = x_offset
         node.y = y_offset
-        offset += domain_slice
+        x_offset += domain_slice
       end
       y_offset += y_stride
     end
-    
-    self.draw_nodes('domain.png')
+    (levels.length-1).downto(1).each do |level|
+      puts "Drawing level #{level}"
+      nodes = levels[level]
+      nodes.each do |node|
+        node.draw_lines(canvas, @icon, @edge_pad, @path_color)
+      end
+      nodes.each do |node|
+        node.draw(canvas, @icon, @edge_pad, @path_color)
+      end
+    end
+    image = PNG.new canvas
+    image.save 'domain.png'
 
   end
 
