@@ -7,6 +7,7 @@ class Graph
 
   def initialize
     @root = Node.new("root", 0)
+    @debug_level = 0
   end
 
   def load_data(nodes)
@@ -89,7 +90,7 @@ class Graph
 
   def domain_sort
     # Attempt to move nodes as close to their parent as possible. 
-    @icon = 32 
+    @icon = 64 
     @padding = 16
     @edge_pad = 32
     @icon_color = PNG::Color::Red 
@@ -135,28 +136,7 @@ class Graph
         node_map[nodeB.name][nodeA.name] = common_nodes.length
       end
     end
-    #node_pool = master_node_pool.uniq
-    #Layout nodes, maximizing common node values
-    #node_list = []
-    #while !node_pool.empty?
-    #  node = node_pool.shift
-    #  if node_list.length < 3
-    #    node_list << node
-    #  else
-    #    best_pointer = -1
-    #    best_score = 0
-    #    for pointer in (0..node_list.length-1)
-    #      left = node_list[pointer]
-    #      current = node_list[pointer+1]
-    #      score = node_map[node][left] + node_map[node][current]
-    #      if  score > best_score
-    #        best_score = score
-    #        best_pointer = pointer
-    #      end
-    #    end
-    #    node_list.insert(best_pointer, node)
-    #  end
-    #end
+
     levels = [[]] #For level 0
     widest_level = 0
     (1 .. max_depth).each do |level|
@@ -195,6 +175,7 @@ class Graph
             end
             levels[level].insert(best_position, node)
           end
+          dump_level(levels)
         end
         if levels[level].length > widest_level
           widest_level = levels[level].length
@@ -260,7 +241,33 @@ class Graph
       #p str + msg
     end
 
-    
+    def dump_level(levels)
 
+      w = 0
+      h = (levels.length * (@icon + @padding)) + (@edge_pad * 2) + @padding
+      levels.each do |level|
+        if level.length > w
+          w = level.length
+        end
+      end
+      w *= (@icon + @padding)
+      w += @padding + (@edge_pad * 2)
+      canvas = PNG::Canvas.new w,h, PNG::Color::Black
+      y = 0
+      levels.each do |level|
+        x = 0
+        level.each do |node|
+          node.x = x * (@icon + @padding) + @edge_pad
+          node.y = y * (@icon + @padding) + @edge_pad
+          node.draw_lines(canvas, @icon, @edge_pad, @path_color)
+          node.draw(canvas, @icon, @edge_pad, @icon_color)
+          x += 1
+        end
+        y += 1
+      end
+      image = PNG.new canvas
+      image.save "sequence%06d.png" % @debug_level
+      @debug_level += 1
+    end
 
 end

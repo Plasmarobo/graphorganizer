@@ -46,7 +46,6 @@ class Node
   def draw_lines(canvas, icon_size, border_size, line_color)
     x = (self.x + border_size)
     y = (self.y + border_size)
-    puts "X: #{x}, Y: #{y}"
     cX = x + icon_size/2
     cY = y + icon_size/2
 
